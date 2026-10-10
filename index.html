@@ -110,9 +110,17 @@
                 url("logo3d.png");
 
             background-color: #06111b;
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: cover;
+
+            background-repeat: no-repeat, no-repeat;
+
+            background-position:
+                center center,
+                center center;
+
+            /* Gradient covers screen, logo fits entirely */
+            background-size:
+                cover,
+                contain;
 
             color: white;
             min-height: calc(100vh - 65px);
@@ -315,7 +323,13 @@
                 min-height: 650px;
                 padding: 75px 24px;
 
-                background-position: 65% center;
+                background-position:
+                    center center,
+                    center center;
+
+                background-size:
+                    cover,
+                    contain;
             }
         }
 
@@ -337,8 +351,17 @@
                     ),
                     url("logo3d.png");
 
-                background-position: center;
-                background-size: cover;
+                background-position:
+                    center center,
+                    center center;
+
+                background-size:
+                    cover,
+                    contain;
+
+                background-repeat:
+                    no-repeat,
+                    no-repeat;
             }
 
             .hero p {
