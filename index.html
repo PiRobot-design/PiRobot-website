@@ -96,39 +96,39 @@
 
         /* FULL-SCREEN HERO BACKGROUND */
 
-        .hero {
-            position: relative;
+     
+.hero {
+    position: relative;
 
-            background-image:
-                linear-gradient(
-                    90deg,
-                    rgba(3, 10, 17, 0.96) 0%,
-                    rgba(3, 10, 17, 0.85) 30%,
-                    rgba(3, 10, 17, 0.45) 65%,
-                    rgba(3, 10, 17, 0.10) 100%
-                ),
-                url("logo3d.png");
+    background-image:
+        linear-gradient(
+            90deg,
+            #06111b 0%,
+            rgba(6, 17, 27, 0.98) 27%,
+            rgba(6, 17, 27, 0.65) 47%,
+            rgba(6, 17, 27, 0.05) 75%
+        ),
+        url("logo3d.png");
 
-            background-color: #06111b;
+    background-color: #06111b;
+    background-repeat: no-repeat;
 
-            background-repeat: no-repeat, no-repeat;
+    background-position:
+        center center,
+        right center;
 
-            background-position:
-                center center,
-                center center;
+    background-size:
+        cover,
+        auto 85%;
 
-            /* Gradient covers screen, logo fits entirely */
-            background-size:
-                cover,
-                contain;
+    min-height: calc(100vh - 75px);
+    padding: 90px 24px;
 
-            color: white;
-            min-height: calc(100vh - 65px);
-            padding: 110px 24px;
+    color: white;
+    display: flex;
+    align-items: center;
+}
 
-            display: flex;
-            align-items: center;
-        }
 
         .wrap {
             max-width: 1250px;
