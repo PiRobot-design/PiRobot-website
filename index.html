@@ -7,15 +7,6 @@
     <meta name="description" content="Pi Robot — mobile robots, agricultural robotics, components and custom solutions.">
     <title>Pi Robot | Robotics for a Smarter Future</title>
 
-@media (max-width: 800px) {
-    .hero {
-        background-size: cover, auto 55%;
-        background-position: center, right bottom;
-        padding: 75px 24px;
-        min-height: 650px;
-    }
-}
-
     <style>
         :root {
             --ink: #09141d;
@@ -24,8 +15,13 @@
             --white: #fff;
         }
 
-        * { box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
 
         body {
             margin: 0;
@@ -38,6 +34,8 @@
             text-decoration: none;
             color: inherit;
         }
+
+        /* NAVIGATION */
 
         header {
             background: #08131c;
@@ -54,21 +52,20 @@
             justify-content: space-between;
             align-items: center;
             gap: 20px;
-            padding: 10px 24px;
+            padding: 15px 24px;
         }
 
         .brand {
             display: flex;
             align-items: center;
             flex-shrink: 0;
+            font-size: 22px;
+            font-weight: 800;
         }
 
-        .brand-logo {
-            height: 85px;
-            width: auto;
-            max-width: 100%;
-            object-fit: contain;
-            display: block;
+        .brand span {
+            color: var(--orange);
+            margin-right: 5px;
         }
 
         nav {
@@ -77,7 +74,11 @@
             align-items: center;
         }
 
-        nav a:hover { color: var(--orange); }
+        nav a:hover {
+            color: var(--orange);
+        }
+
+        /* BUTTONS */
 
         .btn {
             display: inline-block;
@@ -93,31 +94,37 @@
             border: 1px solid white;
         }
 
-        
-.hero {
-    background-image:
-        linear-gradient(
-            90deg,
-            #06111b 0%,
-            rgba(6, 17, 27, 0.98) 32%,
-            rgba(6, 17, 27, 0.65) 65%,
-            rgba(6, 17, 27, 0.15) 100%
-        ),
-        url("logo%3d.png");
+        /* FULL-SCREEN HERO BACKGROUND */
 
-    background-color: #06111b;
-    background-repeat: no-repeat;
-    background-position: center, right center;
-    background-size: cover, auto 90%;
+        .hero {
+            position: relative;
 
-    color: white;
-    padding: 110px 24px;
-    min-height: 720px;
-}
+            background-image:
+                linear-gradient(
+                    90deg,
+                    rgba(3, 10, 17, 0.96) 0%,
+                    rgba(3, 10, 17, 0.85) 30%,
+                    rgba(3, 10, 17, 0.45) 65%,
+                    rgba(3, 10, 17, 0.10) 100%
+                ),
+                url("logo%203d.png");
 
+            background-color: #06111b;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+
+            color: white;
+            min-height: calc(100vh - 65px);
+            padding: 110px 24px;
+
+            display: flex;
+            align-items: center;
+        }
 
         .wrap {
             max-width: 1250px;
+            width: 100%;
             margin: auto;
         }
 
@@ -127,7 +134,9 @@
             margin: 0 0 15px;
         }
 
-        .hero h1 span { color: var(--orange); }
+        .hero h1 span {
+            color: var(--orange);
+        }
 
         .hero p {
             font-size: 20px;
@@ -150,7 +159,11 @@
             text-transform: uppercase;
         }
 
-        .section { padding: 70px 24px; }
+        /* PRODUCT SECTIONS */
+
+        .section {
+            padding: 70px 24px;
+        }
 
         .section h2 {
             text-align: center;
@@ -185,8 +198,13 @@
             font-size: 64px;
         }
 
-        .product .info { padding: 22px; }
-        .product h3 { margin: 0 0 8px; }
+        .product .info {
+            padding: 22px;
+        }
+
+        .product h3 {
+            margin: 0 0 8px;
+        }
 
         .product p {
             color: var(--muted);
@@ -199,12 +217,16 @@
             color: #d95d0b;
         }
 
+        /* COMPONENTS */
+
         .dark {
             background: #091722;
             color: white;
         }
 
-        .dark .lead { color: #c3ccd5; }
+        .dark .lead {
+            color: #c3ccd5;
+        }
 
         .parts {
             display: grid;
@@ -225,12 +247,16 @@
             margin-top: 12px;
         }
 
+        /* CUSTOM ROBOTS */
+
         .custom {
             background: linear-gradient(110deg, #0a1722, #203c4b);
             color: white;
         }
 
-        .custom h2 { text-align: left; }
+        .custom h2 {
+            text-align: left;
+        }
 
         .custom p {
             max-width: 650px;
@@ -238,8 +264,15 @@
             color: #d2dce4;
         }
 
-        .contact { text-align: center; }
-        .contact p { color: var(--muted); }
+        /* CONTACT AND FOOTER */
+
+        .contact {
+            text-align: center;
+        }
+
+        .contact p {
+            color: var(--muted);
+        }
 
         footer {
             background: #07121b;
@@ -248,42 +281,82 @@
             text-align: center;
         }
 
-        footer strong { color: white; }
-        footer a { color: var(--orange); }
+        footer strong {
+            color: white;
+        }
+
+        footer a {
+            color: var(--orange);
+        }
+
+        /* TABLETS */
 
         @media (max-width: 800px) {
+            .nav {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
             nav {
                 gap: 12px;
                 flex-wrap: wrap;
                 font-size: 13px;
             }
 
-            .nav {
-                align-items: flex-start;
-                flex-direction: column;
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
             }
 
-            .grid { grid-template-columns: repeat(2, 1fr); }
-            .parts { grid-template-columns: repeat(2, 1fr); }
-            .hero { padding: 80px 24px; }
+            .parts {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero {
+                min-height: 650px;
+                padding: 75px 24px;
+
+                background-position: 65% center;
+            }
         }
 
-        @media (max-width: 768px) {
-            .brand-logo { height: 60px; }
-        }
+        /* MOBILE PHONES */
 
         @media (max-width: 520px) {
-            .grid { grid-template-columns: 1fr; }
-            .hero p { font-size: 17px; }
-            .section h2 { font-size: 29px; }
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                min-height: 650px;
+                padding: 70px 20px;
+
+                background-image:
+                    linear-gradient(
+                        rgba(3, 10, 17, 0.65),
+                        rgba(3, 10, 17, 0.88)
+                    ),
+                    url("logo%203d.png");
+
+                background-position: center;
+                background-size: cover;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            .section h2 {
+                font-size: 29px;
+            }
         }
     </style>
 </head>
 
 <body>
-   
+
 <header>
     <div class="nav">
+
         <a class="brand" href="#home">
             <span>Pi</span> ROBOT
         </a>
@@ -294,6 +367,7 @@
             <a href="#custom">Custom Robots</a>
             <a href="#contact">Contact</a>
         </nav>
+
     </div>
 </header>
 
