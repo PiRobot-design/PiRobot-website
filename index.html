@@ -1,404 +1,74 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="π Robot — mobile robots, agricultural robotics, components and custom solutions.">
-    <title>π Robot | Robotics for a Smarter Future</title>
-
-    <style>
-        :root {
-            --ink: #09141d;
-            --orange: #ff7518;
-            --muted: #5c6874;
-            --white: #fff;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            color: var(--ink);
-            background: #f4f6f8;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        /* NAVIGATION */
-
-        header {
-            background: #08131c;
-            color: white;
-            position: sticky;
-            top: 0;
-            z-index: 10;
-        }
-
-        .nav {
-            max-width: 1250px;
-            margin: auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
-            padding: 15px 24px;
-        }
-
-        .brand {
-            display: flex;
-            align-items: center;
-            flex-shrink: 0;
-            font-size: 22px;
-            font-weight: 800;
-        }
-
-        .brand span {
-            color: var(--orange);
-            font-size: 32px;
-            font-weight: 900;
-            margin-right: 5px;
-            line-height: 1;
-        }
-
-        nav {
-            display: flex;
-            gap: 24px;
-            align-items: center;
-        }
-
-        nav a:hover {
-            color: var(--orange);
-        }
-
-        /* BUTTONS */
-
-        .btn {
-            display: inline-block;
-            padding: 13px 21px;
-            background: var(--orange);
-            color: white;
-            border-radius: 6px;
-            font-weight: bold;
-        }
-
-        .btn.secondary {
-            background: transparent;
-            border: 1px solid white;
-        }
-
-        /* FULL-SCREEN HERO BACKGROUND */
-
-        .hero {
-            position: relative;
-
-            background-image:
-                linear-gradient(
-                    90deg,
-                    #06111b 0%,
-                    rgba(6, 17, 27, 0.98) 27%,
-                    rgba(6, 17, 27, 0.65) 47%,
-                    rgba(6, 17, 27, 0.05) 75%
-                ),
-                url("logo3d.png");
-
-            background-color: #06111b;
-            background-repeat: no-repeat;
-
-            background-position:
-                center center,
-                right center;
-
-            background-size:
-                cover,
-                auto 85%;
-
-            min-height: calc(100vh - 75px);
-            padding: 90px 24px;
-
-            color: white;
-            display: flex;
-            align-items: center;
-        }
-
-        .wrap {
-            max-width: 1250px;
-            width: 100%;
-            margin: auto;
-        }
-
-        .hero h1 {
-            font-size: clamp(40px, 6vw, 76px);
-            line-height: 1.05;
-            margin: 0 0 15px;
-        }
-
-        .hero h1 span {
-            color: var(--orange);
-        }
-
-        .hero p {
-            font-size: 20px;
-            line-height: 1.6;
-            max-width: 680px;
-            color: #dbe3e9;
-        }
-
-        .actions {
-            display: flex;
-            gap: 14px;
-            flex-wrap: wrap;
-            margin-top: 30px;
-        }
-
-        .eyebrow {
-            color: var(--orange);
-            font-weight: 700;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-        }
-
-        /* PRODUCT SECTIONS */
-
-        .section {
-            padding: 70px 24px;
-        }
-
-        .section h2 {
-            text-align: center;
-            font-size: 36px;
-            margin: 0 0 10px;
-        }
-
-        .lead {
-            text-align: center;
-            color: var(--muted);
-            margin: 0 0 38px;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 22px;
-        }
-
-        .product {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 6px 24px #10203012;
-        }
-
-        .visual {
-            height: 185px;
-            background: linear-gradient(135deg, #dfe6eb, #b5c4cf);
-            display: grid;
-            place-items: center;
-            font-size: 64px;
-        }
-
-        .product .info {
-            padding: 22px;
-        }
-
-        .product h3 {
-            margin: 0 0 8px;
-        }
-
-        .product p {
-            color: var(--muted);
-            line-height: 1.5;
-            min-height: 45px;
-        }
-
-        .more {
-            font-weight: bold;
-            color: #d95d0b;
-        }
-
-        /* COMPONENTS */
-
-        .dark {
-            background: #091722;
-            color: white;
-        }
-
-        .dark .lead {
-            color: #c3ccd5;
-        }
-
-        .parts {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-        }
-
-        .part {
-            background: #172734;
-            border: 1px solid #30404e;
-            border-radius: 10px;
-            padding: 25px;
-            text-align: center;
-        }
-
-        .part b {
-            display: block;
-            margin-top: 12px;
-        }
-
-        /* CUSTOM ROBOTS */
-
-        .custom {
-            background: linear-gradient(110deg, #0a1722, #203c4b);
-            color: white;
-        }
-
-        .custom h2 {
-            text-align: left;
-        }
-
-        .custom p {
-            max-width: 650px;
-            line-height: 1.7;
-            color: #d2dce4;
-        }
-
-        /* CONTACT AND FOOTER */
-
-        .contact {
-            text-align: center;
-        }
-
-        .contact p {
-            color: var(--muted);
-        }
-
-        footer {
-            background: #07121b;
-            color: #bfcbd4;
-            padding: 30px 24px;
-            text-align: center;
-        }
-
-        footer strong {
-            color: white;
-        }
-
-        footer a {
-            color: var(--orange);
-        }
-
-        /* TABLETS */
-
-        @media (max-width: 800px) {
-            .nav {
-                align-items: flex-start;
-                flex-direction: column;
-            }
-
-            nav {
-                gap: 12px;
-                flex-wrap: wrap;
-                font-size: 13px;
-            }
-
-            .grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .parts {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .hero {
-                min-height: 650px;
-                padding: 75px 24px;
-
-                background-position:
-                    center center,
-                    center center;
-
-                background-size:
-                    cover,
-                    contain;
-            }
-        }
-
-        /* MOBILE PHONES */
-
-        @media (max-width: 520px) {
-            .grid {
-                grid-template-columns: 1fr;
-            }
-
-            .hero {
-                min-height: 650px;
-                padding: 70px 20px;
-
-                background-image:
-                    linear-gradient(
-                        rgba(3, 10, 17, 0.65),
-                        rgba(3, 10, 17, 0.88)
-                    ),
-                    url("logo3d.png");
-
-                background-position:
-                    center center,
-                    center center;
-
-                background-size:
-                    cover,
-                    contain;
-
-                background-repeat:
-                    no-repeat,
-                    no-repeat;
-            }
-
-            .hero p {
-                font-size: 17px;
-            }
-
-            .section h2 {
-                font-size: 29px;
-            }
-        }
-    </style>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="π Robot — mobile robots, agricultural robotics, components and custom solutions.">
+<title>π Robot | Robotics for a Smarter Future</title>
+<style>
+
+:root { --ink:#09141d; --orange:#ff7518; --muted:#5c6874; --white:#fff; }
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { margin:0; font-family:Arial,Helvetica,sans-serif; color:var(--ink); background:#f4f6f8; }
+a { text-decoration:none; color:inherit; }
+header { background:#08131c; color:white; position:sticky; top:0; z-index:10; }
+.nav { max-width:1250px; margin:auto; display:flex; justify-content:space-between; align-items:center; gap:20px; padding:12px 24px; }
+.brand { display:flex; align-items:center; flex-shrink:0; }
+.brand-logo { display:block; width:205px; height:auto; max-height:65px; object-fit:contain; mix-blend-mode:screen; }
+nav { display:flex; gap:24px; align-items:center; }
+nav a:hover { color:var(--orange); }
+.btn { display:inline-block; padding:13px 21px; background:var(--orange); color:white; border-radius:6px; font-weight:bold; }
+.btn.secondary { background:transparent; border:1px solid white; }
+.hero { position:relative; background-image:linear-gradient(90deg,#06111b 0%,rgba(6,17,27,.98) 27%,rgba(6,17,27,.65) 47%,rgba(6,17,27,.05) 75%),url('logo3d.png'); background-color:#06111b; background-repeat:no-repeat; background-position:center center,right center; background-size:cover,auto 85%; min-height:calc(100vh - 75px); padding:90px 24px; color:white; display:flex; align-items:center; }
+.wrap { max-width:1250px; width:100%; margin:auto; }
+.hero h1 { font-size:clamp(40px,6vw,76px); line-height:1.05; margin:0 0 15px; }
+.hero h1 span { color:var(--orange); }
+.hero p { font-size:20px; line-height:1.6; max-width:680px; color:#dbe3e9; }
+.actions { display:flex; gap:14px; flex-wrap:wrap; margin-top:30px; }
+.eyebrow { color:var(--orange); font-weight:700; letter-spacing:3px; text-transform:uppercase; }
+.section { padding:70px 24px; }
+.section h2 { text-align:center; font-size:36px; margin:0 0 10px; }
+.lead { text-align:center; color:var(--muted); margin:0 0 38px; }
+.grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+.product { background:white; border-radius:12px; overflow:hidden; box-shadow:0 6px 24px #10203012; }
+.visual { height:185px; background:linear-gradient(135deg,#dfe6eb,#b5c4cf); display:grid; place-items:center; font-size:64px; }
+.product .info { padding:22px; }
+.product h3 { margin:0 0 8px; }
+.product p { color:var(--muted); line-height:1.5; min-height:45px; }
+.more { font-weight:bold; color:#d95d0b; }
+.dark { background:#091722; color:white; }
+.dark .lead { color:#c3ccd5; }
+.parts { display:grid; grid-template-columns:repeat(4,1fr); gap:15px; }
+.part { background:#172734; border:1px solid #30404e; border-radius:10px; padding:25px; text-align:center; }
+.part b { display:block; margin-top:12px; }
+.custom { background:linear-gradient(110deg,#0a1722,#203c4b); color:white; }
+.custom h2 { text-align:left; }
+.custom p { max-width:650px; line-height:1.7; color:#d2dce4; }
+.contact { text-align:center; }
+.contact p { color:var(--muted); }
+footer { background:#07121b; color:#bfcbd4; padding:30px 24px; text-align:center; }
+footer strong { color:white; }
+footer a { color:var(--orange); }
+@media (max-width:800px) {
+ .nav { align-items:flex-start; flex-direction:column; }
+ nav { gap:12px; flex-wrap:wrap; font-size:13px; }
+ .grid { grid-template-columns:repeat(2,1fr); }
+ .parts { grid-template-columns:repeat(2,1fr); }
+ .hero { min-height:650px; padding:75px 24px; background-position:center,center; background-size:cover,contain; }
+}
+@media (max-width:520px) {
+ .brand-logo { width:175px; }
+ .grid { grid-template-columns:1fr; }
+ .hero { min-height:650px; padding:70px 20px; background-image:linear-gradient(rgba(3,10,17,.65),rgba(3,10,17,.88)),url('logo3d.png'); background-position:center,center; background-size:cover,contain; background-repeat:no-repeat; }
+ .hero p { font-size:17px; }
+ .section h2 { font-size:29px; }
+}
+</style>
 </head>
-
 <body>
-
-<header>
-    <div class="nav">
-
-        <a class="brand" href="#home">
-            <span>π</span> ROBOT
-        </a>
-
-        <nav>
-            <a href="#products">Robots</a>
-            <a href="#components">Components</a>
-            <a href="#custom">Custom Robots</a>
-            <a href="#contact">Contact</a>
-        </nav>
-
-    </div>
-</header>
-
-
-
-  <main>
-<section class="hero" id="home"><div class="wrap"><div class="eyebrow">Design · Build · Innovate</div><h1><span>Pi ROBOT</span><br>Robotics for a<br>Smarter Future</h1><p>Mobile robots, agricultural solutions, robotic mowers, tracked platforms and customized robotic systems.</p><div class="actions"><a class="btn" href="#products">Explore Our Robots →</a><a class="btn secondary" href="#contact">Contact Us</a></div></div></section>
+<header><div class="nav"><a class="brand" href="#home" aria-label="Pi Robot home"><img class="brand-logo" src="cedar_pi_robot_logo.png" alt="π ROBOT — Lebanese cedar logo"></a><nav><a href="#products">Robots</a><a href="#components">Components</a><a href="#custom">Custom Robots</a><a href="#contact">Contact</a></nav></div></header>
+<main>
+<section class="hero" id="home"><div class="wrap"><div class="eyebrow">Design · Build · Innovate</div><h1><span>π ROBOT</span><br>Robotics for a<br>Smarter Future</h1><p>Mobile robots, agricultural solutions, robotic mowers, tracked platforms and customized robotic systems.</p><div class="actions"><a class="btn" href="#products">Explore Our Robots →</a><a class="btn secondary" href="#contact">Contact Us</a></div></div></section>
 <section class="section" id="products"><div class="wrap"><h2>Our Products</h2><p class="lead">Explore our robotic platforms and solutions</p><div class="grid">
 <article class="product"><div class="visual">🚙</div><div class="info"><h3>4-Wheel Robots</h3><p>Versatile mobile platforms for different applications.</p><a class="more" href="#contact">Ask for details →</a></div></article>
 <article class="product"><div class="visual">🌱</div><div class="info"><h3>Agricultural Robots</h3><p>Robotic solutions for modern agriculture.</p><a class="more" href="#contact">Ask for details →</a></div></article>
@@ -410,5 +80,5 @@
 <section class="section dark" id="components"><div class="wrap"><h2>Robot Components</h2><p class="lead">Parts and accessories — contact us for availability</p><div class="parts"><div class="part">⚡<b>Brushless Motors</b></div><div class="part">⚙️<b>Gearboxes</b></div><div class="part">🎛️<b>Motor Controllers</b></div><div class="part">🔗<b>Rubber Tracks</b></div><div class="part">🛞<b>Wheels & Tires</b></div><div class="part">🔋<b>Batteries</b></div><div class="part">📡<b>Remote Controls</b></div><div class="part">🔧<b>Chassis & Frames</b></div></div></div></section>
 <section class="section custom" id="custom"><div class="wrap"><h2>Need a Customized Robot?</h2><p>Tell us about your project, operating environment, desired payload, dimensions and control requirements. We can discuss a robotic solution for your needs.</p><a class="btn" href="#contact">Tell Us Your Project →</a></div></section>
 <section class="section contact" id="contact"><div class="wrap"><h2>Contact Pi Robot</h2><p>Interested in a robot or component? Contact us for specifications, availability or a quotation.</p><p><strong>Contact details coming soon.</strong></p><p>We will add your business email and WhatsApp link here.</p></div></section>
-</main><footer><strong>Pi ROBOT</strong> · Robotics for a Smarter Future<br><small>© 2026 Pi Robot. All rights reserved.</small></footer>
+</main><footer><strong>π ROBOT</strong> · Robotics for a Smarter Future<br><small>© 2026 Pi Robot. All rights reserved.</small></footer>
 </body></html>
